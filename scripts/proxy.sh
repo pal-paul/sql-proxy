@@ -19,4 +19,4 @@ docker run \
   /cloud_sql_proxy \
   -dir "${DIR}" \
   -token "${3}" \
-  -instances="${CONNECTION}=tcp:${PORT}"
+  -instances="${CONNECTION}=tcp:127.0.0.1:${PORT}"
