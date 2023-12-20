@@ -1,0 +1,30 @@
+name: Cloud SQL Proxy Action
+description: run the Google Cloud SQL Proxy in a GitHub Action's context
+
+branding:
+  icon: database
+  color: blue
+
+inputs:
+  token:
+    description: Service Account OIDC token
+    required: true
+
+  connection:
+    description: CloudSQL connection name
+    required: true
+
+  port:
+    description: Listening port
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: "sql-proxy: start container"
+      run: ${{ github.action_path }}/scripts/proxy.sh ${{ inputs.port }} ${{ inputs.connection }} ${{ inputs.token }}
+      shell: bash
+
+    - name: "sql-proxy: wait for connection"
+      run: ${{ github.action_path }}/scripts/wait.sh ${{ inputs.port }}
+      shell: bash
