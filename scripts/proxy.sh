@@ -14,5 +14,7 @@ docker run \
   --name cloud-sql-proxy \
   "${IMAGE}" \
   cloud-sql-proxy \
-  --token "${3}" \
-  "${CONNECTION}?port=${PORT}"
+  "${CONNECTION}" \
+  --address 127.0.0.1 \
+  --port "${PORT}" \
+  --token "${3}"
