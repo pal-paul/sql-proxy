@@ -4,7 +4,6 @@ set -euo pipefail
 VERSION="2.21.1-alpine"
 PORT="${1}"
 CONNECTION="${2}"
-DIR="/tmp/action-google-cloud-sql-proxy"
 IMAGE="gcr.io/cloud-sql-connectors/cloud-sql-proxy:${VERSION}"
 
 # start container
@@ -14,9 +13,8 @@ docker run \
   --restart on-failure \
   --name cloud-sql-proxy \
   --publish "${PORT}:${PORT}" \
-  --volume "${DIR}:${DIR}" \
   "${IMAGE}" \
-  /cloud_sql_proxy \
-  -dir "${DIR}" \
-  -token "${3}" \
-  -instances="${CONNECTION}=tcp:127.0.0.1:${PORT}"
+  cloud-sql-proxy \
+  --token "${3}" \
+  --port "${PORT}" \
+  "${CONNECTION}"
