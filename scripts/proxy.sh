@@ -12,9 +12,7 @@ docker run \
   --net host \
   --restart on-failure \
   --name cloud-sql-proxy \
-  --publish "${PORT}:${PORT}" \
   "${IMAGE}" \
   cloud-sql-proxy \
   --token "${3}" \
-  --port "${PORT}" \
-  "${CONNECTION}"
+  "${CONNECTION}?port=${PORT}"

@@ -4,7 +4,7 @@ set -euo pipefail
 READY=0
 PORT="${1}"
 SLEEP=3
-ATTEMPTS=5
+ATTEMPTS=10
 
 for ATTEMPT in {1..10}; do
   echo "connection attempt $ATTEMPT/$ATTEMPTS"
