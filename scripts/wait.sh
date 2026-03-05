@@ -20,3 +20,9 @@ for ATTEMPT in {1..10}; do
 
   sleep "${SLEEP}"
 done
+
+# Check if connection was ever established
+if [[ $READY -ne 0 ]]; then
+  echo "ERROR: Failed to establish connection to 127.0.0.1:${PORT} after ${ATTEMPTS} attempts"
+  exit 1
+fi
