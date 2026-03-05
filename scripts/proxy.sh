@@ -17,4 +17,5 @@ docker run \
   "${CONNECTION}" \
   --address 127.0.0.1 \
   --port "${PORT}" \
-  --token "${3}"
+  --token "${3}" \
+  --auto-iam-authn
