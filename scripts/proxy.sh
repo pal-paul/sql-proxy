@@ -13,7 +13,6 @@ docker run \
   --restart on-failure \
   --name cloud-sql-proxy \
   "${IMAGE}" \
-  cloud-sql-proxy \
   "${CONNECTION}" \
   --address 127.0.0.1 \
   --port "${PORT}" \
