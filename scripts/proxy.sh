@@ -1,11 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
-VERSION="1.22.0-alpine"
+VERSION="2.21.1-alpine"
 PORT="${1}"
 CONNECTION="${2}"
 DIR="/tmp/action-google-cloud-sql-proxy"
-IMAGE="gcr.io/cloudsql-docker/gce-proxy:${VERSION}"
+IMAGE="gcr.io/cloud-sql-connectors/cloud-sql-proxy:${VERSION}"
 
 # start container
 docker run \
