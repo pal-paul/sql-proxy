@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Authenticate to Google Cloud
         id: auth
-        uses: google-github-actions/auth@v0.8.0
+        uses: google-github-actions/auth@v3
         with:
           token_format: access_token
           workload_identity_provider: WORKLOAD_IDENTITY_PROVIDER
@@ -42,4 +42,4 @@ jobs:
 | token      | ✓        | `-`             | Service Account OIDC token                                         |
 | connection | ✓        | `-`             | Cloud SQL connection name                                          |
 | port       | ✓        | `-`             | *Listening port (MySQL: 3306, PostgreSQL: 5432, SQL Server: 1433)* |
-| version    | ✗        | `1.22.0-alpine` | Cloud SQL Proxy [Version][]                                        |
+| version    | ✗        | `2.21.1-alpine` | Cloud SQL Proxy [Version][]                                        |
